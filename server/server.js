@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/auth.routes');
 const userSubmissionRoutes = require('./routes/usersubmission.routes');
+const dashboardRoutes = require('./routes/dashboard.routes');
 
 dotenv.config(); // Load environment variables
 connectDB(); // Connect to the database
@@ -17,6 +18,7 @@ app.use(express.json()); // Parse incoming JSON requests
 // Use Auth Routes
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/submissions', userSubmissionRoutes);
+app.use('/api/v1/dashboard', dashboardRoutes);
 
 // Enhanced Health Check Route
 app.get('/', (req, res) => {
