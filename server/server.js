@@ -2,7 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
-const authRoutes = require('./routes/auth.routes'); // Ensure your file is named correctly (auth.routes.js)
+const authRoutes = require('./routes/auth.routes');
+const userSubmissionRoutes = require('./routes/usersubmission.routes');
 
 dotenv.config(); // Load environment variables
 connectDB(); // Connect to the database
@@ -15,6 +16,7 @@ app.use(express.json()); // Parse incoming JSON requests
 
 // Use Auth Routes
 app.use('/api/v1/auth', authRoutes);
+app.use('/api/v1/submissions', userSubmissionRoutes);
 
 // Enhanced Health Check Route
 app.get('/', (req, res) => {
