@@ -54,8 +54,9 @@ const Dashboard = () => {
   const handleLogout = () => {
     localStorage.removeItem("user");
     setUser(null);
-    window.location.href = "/main";
+    window.location.href = "https://3-w-sigma.vercel.app/main";
   };
+
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
@@ -111,9 +112,8 @@ const Dashboard = () => {
                 {submissions.map((submission, index) => (
                   <tr
                     key={submission._id}
-                    className={`hover:bg-blue-50 ${
-                      index % 2 === 0 ? "bg-gray-50" : "bg-white"
-                    }`}
+                    className={`hover:bg-blue-50 ${index % 2 === 0 ? "bg-gray-50" : "bg-white"
+                      }`}
                   >
                     <td className="border border-gray-300 px-6 py-4 text-gray-700">
                       {submission.name}
